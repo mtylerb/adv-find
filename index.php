@@ -1,30 +1,20 @@
 <?php
 
-/**
- * Advanced Find Plugin for Frog CMS (original)
- * Copyright (C) 2008 Tyler Beckett <tyler@tbeckett.net>
- * Adopted by Dejan Andjelkovic 2010 for Wolf CMS as maintainer
-
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
-
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
-
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ /**
+ * Advanced Find Plugin for Wolf CMS <http://www.tbeckett.net/articles/plugins/adv-find.xhtml>
+ *
+ * Copyright (C) 2008 - 2011 Tyler Beckett <tyler@tbeckett.net>
+ * 
+ * Dual licensed under the MIT (mit-license.txt)
+ * and GPL (gpl-license.txt) licenses.
  */
 
 Plugin::setInfos(array(
     'id'          => 'adv-find',
     'title'       => 'Advanced Find', 
     'description' => 'Allows you to search many different archives and sort them by date.', 
-    'version'     => '1.0.2',
-    'license'     => 'AGPL',
+    'version'     => '1.0.3',
+    'license'     => 'MIT',
     'author'      => 'Tyler Beckett',
     'website'     => 'http://www.tbeckett.net/',
     'update_url'  => 'http://www.tbeckett.net/wpv.xhtml',
@@ -75,7 +65,10 @@ class adv_find extends Page
 		// Use Wolf's built in children function to get all children of the above searched for archives
 		foreach ($results as $parent)
 		{
-			$children[] = $parent->children($vars);
+			// Temporarily increase limit to bypass children becoming a PageType object
+			$varmod = $vars;
+			$varmod['limit'] = 10;
+			$children[] = $parent->children($varmod);
 		}
 		
 		// Count the number of archive variables in the array
