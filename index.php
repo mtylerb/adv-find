@@ -5,8 +5,8 @@
  *
  * Copyright (C) 2008 - 2011 Tyler Beckett <tyler@tbeckett.net>
  * 
- * Dual licensed under the MIT (mit-license.txt)
- * and GPL (gpl-license.txt) licenses.
+ * Dual licensed under the MIT (/license/mit-license.txt)
+ * and GPL (/license/gpl-license.txt) licenses.
  */
 
 Plugin::setInfos(array(
