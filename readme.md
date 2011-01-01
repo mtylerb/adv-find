@@ -8,8 +8,8 @@ Simply extract the archive into your /wolf/plugins/ directory. At this point, al
 ## Use:
 To use, simply call the adv_find() function and specify the following arguments:
 
-1. _Required:_ array('/archive-tree1/','/archive-tree2/') - Specify any number of archive trees here. For example, on my page, I might use: adv_find(array('/articles/free-market/','/articles/plugins/'));
-2. _Optional:_ array('order' => 'table value here DESC', 'limit' => '1+') - Specify your order and limit values here.  Fixed as of version 1.0.3.  Limit now needs to be 1 or greater.
+1. __Required:__ array('/archive-tree1/','/archive-tree2/') - Specify any number of archive trees here. For example, on my page, I might use: adv_find(array('/articles/free-market/','/articles/plugins/'));
+2. __Optional:__ array('order' => 'table value here DESC', 'limit' => '1+') - Specify your order and limit values here.  Fixed as of version 1.0.3.  Limit now needs to be 1 or greater.
 
 ## Example:
 
