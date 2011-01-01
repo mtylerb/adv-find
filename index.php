@@ -13,7 +13,7 @@ Plugin::setInfos(array(
     'id'          => 'adv-find',
     'title'       => 'Advanced Find', 
     'description' => 'Allows you to search many different archives and sort them by date.', 
-    'version'     => '1.0.3',
+    'version'     => '1.0.4',
     'license'     => 'MIT',
     'author'      => 'Tyler Beckett',
     'website'     => 'http://www.tbeckett.net/',
@@ -57,9 +57,16 @@ class adv_find extends Page
 	public function adv_where($search, $vars)
 	{
 		// Use Wolf's built in find function to search for each of the arguments provided
-		foreach ($search as $sought)
+		if (!empty($search))
 		{
-			$results[] = parent::find($sought);
+			foreach ($search as $sought)
+			{
+				$results[] = parent::find($sought);
+			}
+		}
+		else
+		{
+			die ('Nothing entered for Advanced Find plugin to search for.');
 		}
 		
 		// Use Wolf's built in children function to get all children of the above searched for archives
