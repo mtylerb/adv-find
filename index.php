@@ -17,8 +17,8 @@
 
 Plugin::setInfos(array(
     'id'          => 'adv-find',
-    'title'       => _('Advanced Find'), 
-    'description' => _('Allows you to search many different archives and sort them by date.'), 
+    'title'       => __('Advanced Find'), 
+    'description' => __('Allows you to search many different archives and sort them by date.'), 
     'version'     => '1.0.5',
     'license'     => 'MIT',
     'author'      => 'Tyler Beckett',
@@ -72,7 +72,8 @@ class adv_find extends Page
 		}
 		else
 		{
-			die _('Nothing entered for Advanced Find plugin to search for.');
+			echo __('Nothing entered for Advanced Find plugin to search for.');
+			die ();
 		}
 		
 		// Use Wolf's built in children function to get all children of the above searched for archives
