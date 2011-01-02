@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Uncomment the below "if" statement with Wolf 0.7.0 and above
+ * Security measure for Wolf 0.7.0
+ */
+ // if (!defined('IN_CMS')) { exit(); }
+
  /**
  * Advanced Find Plugin for Wolf CMS <http://www.tbeckett.net/articles/plugins/adv-find.xhtml>
  *
@@ -11,14 +17,14 @@
 
 Plugin::setInfos(array(
     'id'          => 'adv-find',
-    'title'       => 'Advanced Find', 
-    'description' => 'Allows you to search many different archives and sort them by date.', 
-    'version'     => '1.0.4',
+    'title'       => _('Advanced Find'), 
+    'description' => _('Allows you to search many different archives and sort them by date.'), 
+    'version'     => '1.0.5',
     'license'     => 'MIT',
     'author'      => 'Tyler Beckett',
     'website'     => 'http://www.tbeckett.net/',
     'update_url'  => 'http://www.tbeckett.net/wpv.xhtml',
-    'require_wolf_version' => '0.5.5'
+    'require_wolf_version' => '0.6.0'
 ));
 
 error_reporting(E_ALL^E_NOTICE);
@@ -66,7 +72,7 @@ class adv_find extends Page
 		}
 		else
 		{
-			die ('Nothing entered for Advanced Find plugin to search for.');
+			die _('Nothing entered for Advanced Find plugin to search for.');
 		}
 		
 		// Use Wolf's built in children function to get all children of the above searched for archives
