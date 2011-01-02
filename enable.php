@@ -1,10 +1,17 @@
 <?php
 
 /**
- * Uncomment the below "if" statement with Wolf 0.7.0 and above
  * Security measure for Wolf 0.7.0
  */
- // if (!defined('IN_CMS')) { exit(); }
+ 
+$ver_check = explode('.',CMS_VERSION);
+if (($ver_check[0] >= 1) || ($ver_check[0] < 1 && $ver_check[1] > 6))
+{
+	if (!defined('IN_CMS')) 
+	{
+		exit();
+	}
+}
 
 /**
  * Advanced Find Plugin for Wolf CMS <http://www.tbeckett.net/articles/plugins/adv-find.xhtml>
