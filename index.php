@@ -1,15 +1,22 @@
 <?php
 
 /**
- * Security measure for Wolf 0.7.0
+ * Security measure for Wolf 0.7.0+
  */
- 
-$ver_check = explode('.',CMS_VERSION);
-if (($ver_check[0] >= 1) || ($ver_check[0] < 1 && $ver_check[1] > 6))
+if (!defined('CMS_VERSION'))
 {
-	if (!defined('IN_CMS')) 
+	Flash::set('error', __('Fatal Error: CMS_VERSION not defined.'));
+}
+else 
+{
+	$ver_check = explode('.',CMS_VERSION);
+	if (($ver_check[0] >= 1) || ($ver_check[0] < 1 && $ver_check[1] > 6))
 	{
-		exit();
+		if (!defined('IN_CMS')) 
+		{
+			Flash::set('error', __('Fatal Error:  Not In CMS'));
+			exit();
+		}
 	}
 }
 
@@ -26,7 +33,7 @@ Plugin::setInfos(array(
     'id'          => 'adv-find',
     'title'       => __('Advanced Find'), 
     'description' => __('Allows you to search many different archives and sort them by date.'), 
-    'version'     => '1.0.5',
+    'version'     => '1.0.6',
     'license'     => 'MIT',
     'author'      => 'Tyler Beckett',
     'website'     => 'http://www.tbeckett.net/',
