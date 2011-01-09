@@ -104,7 +104,7 @@ class adv_find extends Page
 		$total = count($children);
 		
 		// Count the number of children variables to each of the archive variables above
-		for ($x = 0; $x <= $total; $x++)
+		for ($x = 0; $x < $total; $x++)
 		{
 			$ctotal[$x] = count($children[$x]);
 		}
