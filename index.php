@@ -41,7 +41,8 @@ Plugin::setInfos(array(
     'require_wolf_version' => '0.6.0'
 ));
 
-error_reporting(E_ALL^E_NOTICE);
+// Setting error display depending on debug mode or not
+error_reporting((DEBUG ? (E_ALL | E_STRICT) : 0));
 
 class adv_find extends Page
 {
