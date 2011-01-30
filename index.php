@@ -33,7 +33,7 @@ Plugin::setInfos(array(
     'id'          => 'adv-find',
     'title'       => __('Advanced Find'), 
     'description' => __('Allows you to search many different archives and sort them by date.'), 
-    'version'     => '1.0.6',
+    'version'     => '1.0.7',
     'license'     => 'MIT',
     'author'      => 'Tyler Beckett',
     'website'     => 'http://www.tbeckett.net/',
@@ -96,7 +96,7 @@ class adv_find extends Page
 		{
 			// Temporarily increase limit to bypass children becoming a PageType object
 			$varmod = $vars;
-			$varmod['limit'] = 10;
+			if ($varmod['limit'] <= 1) $varmod['limit'] = 10;
 			$children[] = $parent->children($varmod);
 		}
 		
