@@ -96,7 +96,7 @@ class adv_find extends Page
 		{
 			// Temporarily increase limit to bypass children becoming a PageType object
 			// This section is not meant to limit results in any way, quite the opposite
-			if (isset($varmod['limit']) // Check to see if a limit is in place
+			if (isset($varmod['limit'])) // Check to see if a limit is in place
 			{
 				$varmod = $vars;
 				if ($varmod['limit'] == 1) $varmod['limit'] = 10; // If a limit is in place and limit is only 1, increase to 10 temporarily, otherwise leave at current limit
