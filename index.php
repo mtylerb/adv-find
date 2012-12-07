@@ -33,7 +33,7 @@ Plugin::setInfos(array(
     'id'          => 'adv-find',
     'title'       => __('Advanced Find'), 
     'description' => __('Allows you to search many different archives and sort them by date.'), 
-    'version'     => '1.0.8',
+    'version'     => '1.0.9',
     'license'     => 'MIT',
     'author'      => 'Tyler Beckett',
     'website'     => 'http://www.tbeckett.net/',
@@ -91,6 +91,9 @@ class adv_find extends Page
 			die ();
 		}
 		
+		// Create a new variable to store the arguments temporarily so they can be modified without affecting the originally stored arguments.
+		$varmod = $vars;
+		
 		// Use Wolf's built in children function to get all children of the above searched for archives
 		foreach ($results as $parent)
 		{
@@ -98,7 +101,6 @@ class adv_find extends Page
 			// This section is not meant to limit results in any way, quite the opposite
 			if (isset($varmod['limit'])) // Check to see if a limit is in place
 			{
-				$varmod = $vars;
 				if ($varmod['limit'] == 1) $varmod['limit'] = 10; // If a limit is in place and limit is only 1, increase to 10 temporarily, otherwise leave at current limit
 				$children[] = $parent->children($varmod); // Retrieve all children to an array, this will be trimmed to desired limit later
 			} else {
